@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DateDiff Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Date Difference Calculator</h1>
+    <p>Select two dates to calculate the difference.</p>
+
+    <div class="date-inputs">
+      <input type="date" id="date1" />
+      <input type="date" id="date2" />
+    </div>
+
+    <button id="calculateBtn" onclick="calculateDifference()">Calculate Difference</button>
+
+    <div id="result" class="result hidden">
+      <h2>Difference</h2>
+      <p id="daysDiff"></p>
+      <p id="monthsDiff"></p>
+      <p id="yearsDiff"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
