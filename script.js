@@ -1,6 +1,13 @@
 // Set end date to current date by default
 document.getElementById("end-date").valueAsDate = new Date();
 
+function formatDate(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+  const year = date.getFullYear();
+  return `${day} ${month} ${year}`;
+}
+
 function calculateDifference() {
   const startDate = new Date(document.getElementById("start-date").value);
   const endDate = new Date(document.getElementById("end-date").value);
@@ -36,5 +43,9 @@ function calculateDifference() {
     message = `${isNegative ? "-" : ""}${years} year(s), ${months % 12} month(s), and ${days % 30} day(s)`;
   }
 
-  resultDiv.textContent = `The difference is ${message}.`;
+  // Format dates and display result
+  const formattedStartDate = formatDate(startDate);
+  const formattedEndDate = formatDate(endDate);
+
+  resultDiv.textContent = `Difference between ${formattedStartDate} and ${formattedEndDate} is: ${message}.`;
 }
