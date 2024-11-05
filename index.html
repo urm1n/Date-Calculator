@@ -7,13 +7,17 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="calculator">
+  <div class="container">
     <h1>Date Difference Calculator</h1>
-    <label for="start-date">Start Date:</label>
-    <input type="date" id="start-date">
+    <div class="form-group">
+      <label for="start-date">Start Date:</label>
+      <input type="date" id="start-date">
+    </div>
     
-    <label for="end-date">End Date:</label>
-    <input type="date" id="end-date">
+    <div class="form-group">
+      <label for="end-date">End Date:</label>
+      <input type="date" id="end-date">
+    </div>
     
     <button onclick="calculateDifference()">Calculate</button>
     

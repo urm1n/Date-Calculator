@@ -1,9 +1,9 @@
-// Set end date to current date by default
+// Set the end date to today by default
 document.getElementById("end-date").valueAsDate = new Date();
 
 function formatDate(date) {
   const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+  const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = date.getFullYear();
   return `${day} ${month} ${year}`;
 }
@@ -18,15 +18,10 @@ function calculateDifference() {
     return;
   }
 
-  // Calculate the difference in milliseconds
+  // Calculate difference in milliseconds
   let differenceInTime = endDate - startDate;
-  let isNegative = false;
-
-  // If end date is earlier, make the difference negative
-  if (differenceInTime < 0) {
-    isNegative = true;
-    differenceInTime = Math.abs(differenceInTime);
-  }
+  let isNegative = differenceInTime < 0;
+  if (isNegative) differenceInTime = Math.abs(differenceInTime);
 
   // Calculate difference in days, months, and years
   const days = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
