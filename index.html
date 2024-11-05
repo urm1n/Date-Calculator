@@ -3,27 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Date Difference Finder</title>
+  <title>Date Difference Calculator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1 class="title">Retro Date Difference Finder</h1>
-      <p>Select two dates to find the difference:</p>
-      
-      <div class="date-inputs">
-        <label for="startDate">Start Date</label>
-        <input type="text" id="startDate" placeholder="DD/MM/YYYY" onfocus="(this.type='date')" onblur="(this.type='text')">
-        
-        <label for="endDate">End Date</label>
-        <input type="text" id="endDate" placeholder="DD/MM/YYYY" onfocus="(this.type='date')" onblur="(this.type='text')" value="">
-      </div>
-      
-      <button onclick="calculateDifference()">Calculate Difference</button>
-      
-      <div id="result" class="result">Difference: <span id="output"></span></div>
-    </div>
+  <div class="calculator">
+    <h1>Date Difference Calculator</h1>
+    <label for="start-date">Start Date:</label>
+    <input type="date" id="start-date">
+    
+    <label for="end-date">End Date:</label>
+    <input type="date" id="end-date">
+    
+    <button onclick="calculateDifference()">Calculate</button>
+    
+    <div class="result" id="result">Select dates to see the difference.</div>
   </div>
   
   <script src="script.js"></script>

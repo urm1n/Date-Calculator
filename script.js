@@ -1,21 +1,23 @@
 function calculateDifference() {
-    const startDateInput = document.getElementById('startDate').value;
-    const endDateInput = document.getElementById('endDate').value || new Date().toISOString().split('T')[0]; // Default to today
+    const startDate = document.getElementById("start-date").value;
+    const endDate = document.getElementById("end-date").value;
+    const resultDiv = document.getElementById("result");
   
-    // Parse dates
-    const startDate = new Date(startDateInput.split('/').reverse().join('-'));
-    const endDate = new Date(endDateInput.split('/').reverse().join('-'));
-  
-    if (isNaN(startDate) || isNaN(endDate)) {
-      document.getElementById('output').textContent = 'Please enter valid dates in DD/MM/YYYY format.';
+    if (!startDate || !endDate) {
+      resultDiv.textContent = "Please select both dates.";
       return;
     }
   
-    // Calculate difference
-    const differenceInTime = Math.abs(endDate - startDate);
-    const differenceInDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
+    const start = new Date(startDate);
+    const end = new Date(endDate);
     
-    // Display result
-    document.getElementById('output').textContent = `${differenceInDays} day(s)`;
+    const differenceInTime = end - start;
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+  
+    if (differenceInDays < 0) {
+      resultDiv.textContent = "End date should be after start date.";
+    } else {
+      resultDiv.textContent = `The difference is ${differenceInDays} day(s).`;
+    }
   }
   
