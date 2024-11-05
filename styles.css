@@ -7,8 +7,8 @@
   
   /* Body Styling */
   body {
-    background-color: #282828; /* Dark background */
-    color: #FFCC00; /* Retro yellow text */
+    background-color: #121212; /* Dark background */
+    color: #00FF41; /* Bright green retro text */
     font-family: 'Courier New', monospace; /* 90s font */
     display: flex;
     justify-content: center;
@@ -18,46 +18,52 @@
   
   /* Calculator Box Styling */
   .calculator {
-    background-color: #333333;
-    border: 4px solid #FFCC00;
+    background-color: #1a1a1a;
+    border: 4px solid #00FF41;
     padding: 20px;
-    width: 300px;
+    width: 350px;
     text-align: center;
-    box-shadow: 10px 10px 0px #000000; /* Hard shadow */
+    box-shadow: 15px 15px 0px #000000; /* Hard shadow */
+    border-radius: 8px;
+    animation: float 2s infinite ease-in-out;
   }
   
   h1 {
     margin-bottom: 20px;
-    font-size: 20px;
-    color: #FFCC00;
+    font-size: 22px;
+    color: #00FF41;
+    text-shadow: 2px 2px 0px #000;
   }
   
   label {
     display: block;
     margin-top: 10px;
+    font-size: 14px;
   }
   
   input[type="date"] {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    background-color: #444444;
-    border: 2px solid #FFCC00;
-    color: #FFCC00;
+    background-color: #333333;
+    border: 2px solid #00FF41;
+    color: #00FF41;
     font-family: inherit;
+    border-radius: 5px;
   }
   
   /* Button Styling */
   button {
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: #FFCC00;
-    color: #333333;
+    background-color: #00FF41;
+    color: #121212;
     font-weight: bold;
-    border: 2px solid #FFCC00;
+    border: 2px solid #00FF41;
     cursor: pointer;
-    transition: transform 0.1s ease-in-out;
     font-family: inherit;
+    transition: transform 0.1s ease-in-out;
+    border-radius: 5px;
   }
   
   button:hover {
@@ -73,6 +79,20 @@
     margin-top: 20px;
     font-size: 16px;
     font-weight: bold;
-    color: #FFCC00;
+    color: #00FF41;
+    background: #333333;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #00FF41;
+  }
+  
+  /* Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
   

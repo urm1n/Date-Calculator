@@ -1,23 +1,40 @@
+// Set end date to current date by default
+document.getElementById("end-date").valueAsDate = new Date();
+
 function calculateDifference() {
-    const startDate = document.getElementById("start-date").value;
-    const endDate = document.getElementById("end-date").value;
-    const resultDiv = document.getElementById("result");
-  
-    if (!startDate || !endDate) {
-      resultDiv.textContent = "Please select both dates.";
-      return;
-    }
-  
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-    
-    const differenceInTime = end - start;
-    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
-  
-    if (differenceInDays < 0) {
-      resultDiv.textContent = "End date should be after start date.";
-    } else {
-      resultDiv.textContent = `The difference is ${differenceInDays} day(s).`;
-    }
+  const startDate = new Date(document.getElementById("start-date").value);
+  const endDate = new Date(document.getElementById("end-date").value);
+  const resultDiv = document.getElementById("result");
+
+  if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+    resultDiv.textContent = "Please select both dates.";
+    return;
   }
-  
+
+  // Calculate the difference in milliseconds
+  let differenceInTime = endDate - startDate;
+  let isNegative = false;
+
+  // If end date is earlier, make the difference negative
+  if (differenceInTime < 0) {
+    isNegative = true;
+    differenceInTime = Math.abs(differenceInTime);
+  }
+
+  // Calculate difference in days, months, and years
+  const days = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
+  const months = Math.floor(days / 30);
+  const years = Math.floor(days / 365);
+
+  let message = "";
+
+  if (days < 30) {
+    message = `${isNegative ? "-" : ""}${days} day(s)`;
+  } else if (days < 365) {
+    message = `${isNegative ? "-" : ""}${months} month(s) and ${days % 30} day(s)`;
+  } else {
+    message = `${isNegative ? "-" : ""}${years} year(s), ${months % 12} month(s), and ${days % 30} day(s)`;
+  }
+
+  resultDiv.textContent = `The difference is ${message}.`;
+}
