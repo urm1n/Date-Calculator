@@ -46,6 +46,13 @@
     border-radius: 8px;
     border: 1px solid #ddd;
     outline: none;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .date-inputs input:focus {
+    border-color: #007aff;
+    transition: border-color 0.3s;
   }
   
   button {
@@ -66,13 +73,12 @@
   .result {
     margin-top: 1.5rem;
     opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
   
   .result.visible {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
-
   
